@@ -1,1 +1,1 @@
-# movies-explorer-frontend
+# frontend: artem.movies.students.nomoredomains.work
