@@ -3,14 +3,18 @@
   min-width: 320px;
   width: 100%;
   min-height: 100vh;
+  
   font-family: "Inter", "Helvetica Neue", "Arial", sans-serif;
   font-style: normal;
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
+
   margin: 0 auto;
+
   /* тест бг */
-  background: #aaaa; 
+  background: rgba(236, 234, 234, 0.829); 
 }
