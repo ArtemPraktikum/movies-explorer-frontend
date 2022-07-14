@@ -2,15 +2,17 @@ import React from "react";
 // импорт компонентов
 import Header from "../Header/Header";
 import Promo from "../Promo/Promo";
+import AboutProject from "../AboutProject/AboutProject";
 
 import "./Main.css";
 
 function Main(props) {
   return (
-    <div>
+    <main>
       <Header loggedIn={props.loggedIn} />
       <Promo />
-    </div>
+      <AboutProject />
+    </main>
   );
 }
 

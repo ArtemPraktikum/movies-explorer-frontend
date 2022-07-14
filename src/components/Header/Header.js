@@ -79,7 +79,7 @@ function Header(props) {
       {/* при разрешении <769, при срабатывании бургерменю кнопки, открыть сайдменю навигации */}
 
       {/* конейнер сайд нав меню */}
-      <nav
+      <aside
         // всегда скрыт с помощью динамического класса, если не нажат бургер
         className={
           isBurgerMenuOpen ? "header__side-menu_open" : "header__side-menu"
@@ -130,7 +130,7 @@ function Header(props) {
             ></NavLink>
           </li>
         </ul>
-      </nav>
+      </aside>
     </header>
   );
 }

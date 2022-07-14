@@ -6,16 +6,16 @@ function NavTab() {
   return (
     // контейнер с навигацией по странице «О проекте»
     <nav className="navtab">
-      {/* текст ссылки на компоненты текущей страницы */}
-      <NavLink className="navtab__link" to="#AboutProject">
+      {/* текст ссылки на id компонентов текущей страницы */}
+      <a className="navtab__link" href="#AboutProject">
         О проекте
-      </NavLink>
-      <NavLink className="navtab__link" to="#Techs">
+      </a>
+      <a className="navtab__link" href="#Techs">
         Технологии
-      </NavLink>
-      <NavLink className="navtab__link" to="#AboutMe">
+      </a>
+      <a className="navtab__link" href="#AboutMe">
         Студент
-      </NavLink>
+      </a>
     </nav>
   );
 }
