@@ -13,12 +13,12 @@
     padding: 0 30px;
   }
 }
-
 @media screen and (max-width: 321px) {
   .header {
     padding: 0 14px;
   }
 }
+
 /* лого сайта */
 .header__logo {
   width: 38px;
