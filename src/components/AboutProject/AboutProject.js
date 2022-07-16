@@ -1,4 +1,3 @@
-import React from "react";
 import "./AboutProject.css";
 
 function AboutProject() {
@@ -39,7 +38,7 @@ function AboutProject() {
       {/* контейнер для двух блоков/илюстраций с текстом */}
       <div className="about-project__block-colortext-container">
         {/* контейнер для бэк энд блока */}
-        <div className="about-project__front-back-block">
+        <div className="about-project__front-back-block_back">
           {/* текст с бэкграундом бекенд */}
           <p className="about-project__front-back-block_text about-project__front-back-block_text_backend">
             1 неделя
@@ -49,7 +48,7 @@ function AboutProject() {
         </div>
 
         {/* контейнер для фронт энд блока */}
-        <div className="about-project__front-back-block">
+        <div className="about-project__front-back-block_front">
           {/* текст с бэкграундом фронтенд */}
           <p className="about-project__front-back-block_text about-project__front-back-block_text_frontend">
             4 недели

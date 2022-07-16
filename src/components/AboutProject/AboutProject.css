@@ -133,6 +133,40 @@
   width: 100%;
 }
 
+/* контейнер для бэк энд блока */
+.about-project__front-back-block_back{
+  width: 100%;
+  max-width: 228px;
+}
+@media screen and (max-width: 769px) {
+  .about-project__front-back-block_back {
+    max-width: 140px;
+    height: 36px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .about-project__front-back-block_back {
+    max-width: 100px;
+    height: 35px;
+  }
+}
+
+/* контейнер для фронт энд блока */
+.about-project__front-back-block_front {
+  width: 100%;
+  max-width: 912px;
+}
+@media screen and (max-width: 769px) {
+  .about-project__front-back-block_front {
+    max-width: 528px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .about-project__front-back-block_front {
+    max-width: 184px;
+  }
+}
+
 /* текст с бэкграундом */
 .about-project__front-back-block_text {
   font-family: "Inter";
@@ -161,21 +195,8 @@
 /* текст с бэкграундом бекенд */
 .about-project__front-back-block_text_backend {
   background: #2be080;
-  width: 228px;
   height: 36px;
   margin: 0px;
-}
-@media screen and (max-width: 769px) {
-  .about-project__front-back-block_text_backend {
-    width: 140px;
-    height: 36px;
-  }
-}
-@media screen and (max-width: 321px) {
-  .about-project__front-back-block_text_backend {
-    width: 100px;
-    height: 35px;
-  }
 }
 
 /* подпись снизу */
@@ -200,18 +221,7 @@
 
 /* текст с бэкграундом фронтенд */
 .about-project__front-back-block_text_frontend {
-  width: 912px;
   height: 36px;
   background: #f2f2f2;
   margin: 0px;
-}
-@media screen and (max-width: 769px) {
-  .about-project__front-back-block_text_frontend {
-    width: 528px;
-  }
-}
-@media screen and (max-width: 321px) {
-  .about-project__front-back-block_text_frontend {
-    width: 184px;
-  }
 }

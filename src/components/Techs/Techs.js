@@ -2,6 +2,7 @@ import "./Techs.css";
 
 function Techs() {
   return (
+    // контейнер блока techs
     <section className="techs" id="Techs">
       {/* глав заголовок блока */}
       <h2 className="techs__title">Технологии</h2>

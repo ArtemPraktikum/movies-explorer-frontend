@@ -1,6 +1,5 @@
-import React from "react";
 import "./Promo.css";
-import NavTab from '../NavTab/NavTab';
+import NavTab from "../NavTab/NavTab";
 
 function Promo() {
   return (
@@ -11,7 +10,7 @@ function Promo() {
         Учебный проект студента факультета Веб-разработки.
       </h1>
       {/* компонент с навигацией */}
-      <NavTab/>
+      <NavTab />
     </section>
   );
 }
