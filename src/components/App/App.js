@@ -5,18 +5,23 @@ import "./App.css";
 
 // импорт компонентов
 import Main from "../Main/Main";
+import Movies from "../Movies/Movies";
 
 function App() {
   // состояние логина
-  const [loggedIn, setloggedIn] = useState(false);
+  const [loggedIn, setloggedIn] = useState(true);
   return (
-    // контейнер всей страницы 
+    // контейнер всей страницы
     <div className="app">
       {/* свитч компонент-конейнер для всех роутов */}
       <Switch>
-        {/* компонент страницы «О проекте» */}
+        {/* компонент страницы «О проекте» main */}
         <Route exact path="/">
           <Main loggedIn={loggedIn} />
+        </Route>
+        {/* компонент страницы с поиском по фильмам */}
+        <Route exact path="/movies">
+          <Movies loggedIn={loggedIn} />
         </Route>
       </Switch>
     </div>
