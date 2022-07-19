@@ -21,6 +21,9 @@ function MoviesCardList() {
         <MoviesCard />
         <MoviesCard />
       </div>
+
+      {/* если эта кнопка будет не нужна на странице с сохр. фильмами, тогда скрою её с помощью js логики */}
+
       {/* текстовая кнопка добавляющая карточки в галерею */}
       <button className="movies-card-list__btn" type="button">
         Еще
