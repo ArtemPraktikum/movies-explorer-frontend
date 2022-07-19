@@ -1,0 +1,108 @@
+/* контейнер всей карточки */
+.movies-card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 364px;
+  height: 271px;
+  background: #fdfdfd;
+  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid rgb(0, 255, 234);
+}
+@media screen and (max-width: 769px) {
+  .movies-card {
+    max-width: 339px;
+    height: 258px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .movies-card {
+    max-width: 300px;
+    height: 236px;
+  }
+}
+
+/* контейнер описания и кнопки */
+.movies-card__container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 68px;
+  padding: 14px;
+}
+
+/* контейнер для текста */
+.movies-card__text-container {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+/* название фильма */
+.movies-card__name {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #000000;
+  margin: 0px;
+  padding: 0;
+}
+
+/* продолжительность фильма текст */
+.movies-card__film-lenght {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #a0a0a0;
+  margin: 0;
+  padding: 0;
+}
+
+/* общий класс для всех кнопок */
+.movies-card__btn {
+  width: 30px;
+  height: 30px;
+  padding: 0px;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  background-size: cover;
+  border: none;
+}
+/* актив лайк */
+.movies-card__btn_liked {
+  background-image: url("../../images/like.svg");
+}
+/* неактив лайк */
+.movies-card__btn_disliked {
+  background-image: url("../../images/dislike.svg");
+}
+/* вместо лайка кнопка удаления */
+.movies-card__btn_delete {
+  background-image: url("../../images/delete.svg");
+}
+
+/* картинка в карточке */
+.movies-card__img {
+  width: 100%;
+  height: 203px;
+  object-fit: cover;
+}
+@media screen and (max-width: 769px) {
+  .movies-card__img {
+    height: 190px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .movies-card__img {
+    height: 168px;
+  }
+}

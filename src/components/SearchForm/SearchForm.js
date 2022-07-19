@@ -25,9 +25,9 @@ function SearchForm() {
         {/* контейнер для чекбокса и подписи */}
         <div className="seach-form__checkbox-container">
           {/* чекбокс (был взят в интернете) */}
-          <label class="switch">
+          <label className="switch">
             <input type="checkbox" />
-            <span class="slider round"></span>
+            <span className="slider round"></span>
           </label>
           {/* подпись чекбокса */}
           <p className="search-form__checkbox_description">Короткометражки</p>
