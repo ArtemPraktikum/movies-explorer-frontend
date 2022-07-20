@@ -1,0 +1,157 @@
+/* весь компонент профиля */
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 74px 0 70px;
+
+  border: 1px solid rgb(1, 15, 14);
+}
+@media screen and (max-width: 769px) {
+  .profile {
+    padding: 236px 0 269px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .profile {
+    padding: 70px 0 40px;
+  }
+}
+
+/* заголовок приветствие, имя буудет изменяться логикой */
+.profile__title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #000000;
+  margin: 0px;
+  margin-bottom: 123px;
+  padding: 0;
+}
+@media screen and (max-width: 769px) {
+  .profile__title {
+    margin-bottom: 96px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .profile__title {
+    margin-bottom: 80px;
+  }
+}
+
+/* контейнер формы с 2умя импутами */
+.profile__form {
+  max-width: 410px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (max-width: 321px) {
+  .profile__form {
+    max-width: 260px;
+  }
+}
+
+/* контейнер для импутов */
+.profile__form_inputs-container {
+  width: 100%;
+  list-style-type: none;
+  gap: 17px;
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 220px;
+}
+@media screen and (max-width: 769px) {
+  .profile__form_inputs-container {
+    margin-bottom: 210px;
+  }
+}
+@media screen and (max-width: 321px) {
+  .profile__form_inputs-container {
+    margin-bottom: 379px;
+  }
+}
+
+/* контейнер для импута и лейбла */
+.profile__form_input-label-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8e8e8;
+  padding-bottom: 16px;
+}
+.profile__form_input-label-container:last-child {
+  border: none;
+  padding-bottom: 0;
+}
+
+/* текст в начале инпута */
+.profile__form_label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+  max-width: 141px;
+  width: 100%;
+}
+@media screen and (max-width: 321px) {
+  .profile__form_label {
+    max-width: 130px;
+  }
+}
+
+/* сам инпут */
+.profile__form_input {
+  max-width: 50%;
+  width: 100%;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #000000;
+  border: none;
+  outline: none;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 321px) {
+  .profile__form_input {
+    width: 120px;
+  }
+}
+
+/* общий класс  текстовая кнопка отправить на сервер изменённые данные */
+.profile__btn {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0px;
+}
+@media screen and (max-width: 321px) {
+  .profile__btn {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+/* класс красной копки */
+.profile__btn_logout {
+  margin-top: 16px;
+  color: #ee3465;
+}

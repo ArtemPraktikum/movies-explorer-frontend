@@ -7,6 +7,7 @@ import "./App.css";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
+import Profile from "../Profile/Profile";
 
 function App() {
   // состояние логина
@@ -27,6 +28,10 @@ function App() {
         {/* компонент страницы с сохранёнными карточками фильмов */}
         <Route exact path="/saved-movies">
           <SavedMovies loggedIn={loggedIn} />
+        </Route>
+        {/* компонент страницы изменения профиля */}
+        <Route exact path="/profile">
+          <Profile loggedIn={loggedIn} />
         </Route>
       </Switch>
     </div>
