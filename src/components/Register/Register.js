@@ -37,7 +37,7 @@ function Register() {
               value={"pochta@yandex.ru"}
             />
           </li>
-          
+
           <li className="register__form_input-container_element">
             <label className="register__form_label">Пароль</label>
             <input
