@@ -9,6 +9,7 @@ import Movies from "../Movies/Movies";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
+import Login from "../Login/Login";
 
 function App() {
   // состояние логина
@@ -37,6 +38,10 @@ function App() {
         {/* компонент страницы регистрации */}
         <Route exact path="/signup">
           <Register />
+        </Route>
+        {/* компонент страницы авторизации */}
+        <Route exact path="/signin">
+          <Login />
         </Route>
       </Switch>
     </div>
