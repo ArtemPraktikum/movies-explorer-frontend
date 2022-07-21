@@ -14,7 +14,7 @@ import NotFoundPage from "../NotFoundPage/NotFoundPage";
 
 function App() {
   // состояние логина
-  const [loggedIn, setloggedIn] = useState(false);
+  const [loggedIn, setloggedIn] = useState(true);
   return (
     // контейнер всей страницы
     <div className="app">
@@ -46,7 +46,7 @@ function App() {
         </Route>
       </Switch>
       {/* компонент для любого несуществуюшего роута */}
-      <Route path="/*">
+      <Route path="/123">
         <NotFoundPage />
       </Route>
     </div>

@@ -7,8 +7,6 @@
   align-items: center;
   justify-content: center;
   padding: 100px 70px;
-
-  border: 1px solid rgb(0, 255, 115);
 }
 @media screen and (max-width: 769px) {
   .about-project {

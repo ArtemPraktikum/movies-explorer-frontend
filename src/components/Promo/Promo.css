@@ -10,8 +10,6 @@
   justify-content: center;
   margin: 20px auto 0;
   width: 94%;
-
-  border: 1px solid rgb(140, 0, 255);
 }
 @media screen and (max-width: 769px) {
   .promo {

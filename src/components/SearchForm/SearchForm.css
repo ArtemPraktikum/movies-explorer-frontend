@@ -3,8 +3,6 @@
   width: 100%;
   padding: 80px 70px 10px;
   box-sizing: border-box;
-
-  border: 1px solid rgb(255, 0, 212);
 }
 @media screen and (max-width: 769px) {
   .search-form {
