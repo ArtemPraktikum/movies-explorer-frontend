@@ -1,3 +1,5 @@
+import "./Main.css";
+
 // импорт компонентов
 import Header from "../Header/Header";
 import Promo from "../Promo/Promo";
@@ -8,14 +10,16 @@ import Footer from "../Footer/Footer";
 
 function Main(props) {
   return (
-    <main>
+    <>
       <Header loggedIn={props.loggedIn} />
-      <Promo />
-      <AboutProject />
-      <Techs />
-      <AboutMe />
+      <main className="main">
+        <Promo />
+        <AboutProject />
+        <Techs />
+        <AboutMe />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
 
