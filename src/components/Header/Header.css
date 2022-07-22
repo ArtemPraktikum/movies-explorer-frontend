@@ -7,12 +7,12 @@
   align-items: center;
   padding: 0 30px;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header {
     padding: 0 30px;
   }
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header {
     padding: 0 14px;
   }
@@ -25,7 +25,7 @@
   margin-right: 40px;
   background-image: url("../../images/logo.svg");
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header__logo {
     margin-right: 0px;
   }
@@ -37,7 +37,7 @@
   display: flex;
   margin-right: auto;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header__nav-links {
     display: none;
   }
@@ -68,7 +68,7 @@
   line-height: 16px;
   align-items: center;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header__link_account {
     display: none;
   }
@@ -78,7 +78,7 @@
   font-size: 12px;
   line-height: 16px;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header__link_auth {
     font-size: 10px;
     line-height: 16px;
@@ -109,7 +109,7 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header__profile-image {
     display: none;
   }
@@ -125,12 +125,12 @@
   height: 44px;
   border: none;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header__burger-menu-button {
     display: block;
   }
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header__burger-menu-button {
     width: 40px;
     height: 43px;
@@ -144,7 +144,7 @@
   align-items: center;
   gap: 30px;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header__auth-link-container {
     gap: 14px;
   }
@@ -160,7 +160,7 @@
   padding: 8px 20px;
   box-sizing: border-box;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header__link_auth_singin {
     width: 54px;
     height: 26px;
@@ -197,7 +197,7 @@
   border: none;
   z-index: 2;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header__side-menu_close-btn {
     top: 14px;
     right: 14px;
@@ -221,7 +221,7 @@
   height: 100%;
   z-index: 1;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header__side-menu_container {
     width: 100%;
   }
@@ -242,7 +242,7 @@
   flex-direction: row;
   gap: 13px;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .header__side-menu_container_element:first-child {
     margin-top: 144px;
     gap: 24px;
@@ -252,12 +252,12 @@
   }
 }
 /* доп класс для ссылок на профиль для видимости */
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header__link_account_side-menu {
     display: block;
   }
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .header__profile-image_side-menu {
     display: block;
   }

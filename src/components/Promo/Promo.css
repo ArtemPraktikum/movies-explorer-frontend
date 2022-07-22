@@ -11,13 +11,13 @@
   margin: 20px auto 0;
   width: 94%;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .promo {
     max-width: 95%;
     height: 834px;
   }
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .promo {
     max-width: 91%;
     height: 586px;
@@ -39,7 +39,7 @@
   padding: 0;
   margin: 160px 0 151px;
 }
-@media screen and (max-width: 769px) {
+@media screen and (max-width: 1279px) {
   .promo__title {
     max-width: 680px;
     font-size: 40px;
@@ -47,7 +47,7 @@
     margin: 350px 0 314px;
   }
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .promo__title {
     max-width: 292px;
     font-size: 29px;

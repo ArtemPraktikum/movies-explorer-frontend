@@ -7,7 +7,7 @@
   justify-content: space-between;
   gap: 10px;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .navtab {
     margin-bottom: 17px;
     gap: 6px;
@@ -29,7 +29,7 @@
   box-sizing: border-box;
   padding: 10px 0px;
 }
-@media screen and (max-width: 321px) {
+@media screen and (max-width: 767px) {
   .navtab__link {
     font-size: 10px;
     width: 82px;

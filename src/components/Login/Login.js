@@ -6,20 +6,20 @@ import { NavLink } from "react-router-dom";
 function Login() {
   return (
     // контейнер стр. регистрации
-    <section className="register">
+    <section className="login">
       {/* кликабельное лого сайта */}
-      <NavLink className="register__logo" to="/" />
+      <NavLink className="login__logo" to="/" />
       {/* заголовок */}
-      <h1 className="register__title">Рады видеть!</h1>
+      <h1 className="login__title">Рады видеть!</h1>
       {/* контейнер формы с 3мя импутами */}
-      <form className="register__form" name="register">
+      <form className="login__form" name="login">
         {/* контейнер для всех импут-контейнеров и подписи */}
-        <ul className="register__form_input-container">
+        <ul className="login__form_input-container">
           {/* контейнер для лейбла и импута */}
-          <li className="register__form_input-container_element">
-            <label className="register__form_label">E-mail</label>
+          <li className="login__form_input-container_element">
+            <label className="login__form_label">E-mail</label>
             <input
-              className="register__form_input"
+              className="login__form_input"
               type="email"
               placeholder="введите ваш E-mail"
               required
@@ -27,10 +27,10 @@ function Login() {
             />
           </li>
 
-          <li className="register__form_input-container_element">
-            <label className="register__form_label">Пароль</label>
+          <li className="login__form_input-container_element">
+            <label className="login__form_label">Пароль</label>
             <input
-              className="register__form_input"
+              className="login__form_input"
               type="password"
               placeholder="Ведите ваш пароль"
               required
@@ -40,20 +40,20 @@ function Login() {
         </ul>
         {/* текстовая кнопка зарег. */}
         <button
-          className="register__form_btn"
+          className="login__form_btn"
           type="submit"
           aria-label="кнопка подтвердить регистрацию"
         >
           Войти
         </button>
         {/* контейнер для текста и ссылки */}
-        <div className="register__form_text-link-container">
+        <div className="login__form_text-link-container">
           {/* текст */}
-          <p className="register__form_question-text">
+          <p className="login__form_question-text">
             Ещё не зарегистрированы?
           </p>
           {/* текс ссылка */}
-          <NavLink className="register__form_link" to="/signup">
+          <NavLink className="login__form_link" to="/signup">
             Регистрация
           </NavLink>
         </div>
