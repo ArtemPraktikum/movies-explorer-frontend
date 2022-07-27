@@ -1,0 +1,212 @@
+/* контейнер стр. регистрации */
+.register {
+  margin: 0 auto;
+  max-width: 396px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 70px 0;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 1279px) {
+  .register {
+    padding: 232px 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .register {
+    padding: 56px 0 30px;
+  }
+}
+
+/* кликабельное лого сайта */
+.register__logo {
+  background: url("../../images/logo.svg");
+  align-self: flex-start;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 40px;
+}
+@media screen and (max-width: 767px) {
+  .register__logo {
+    align-self: center;
+    margin-bottom: 50px;
+  }
+}
+
+/* заголовок */
+.register__title {
+  align-self: flex-start;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29px;
+  color: #000000;
+  margin: 0px;
+  margin-bottom: 40px;
+  padding: 0;
+}
+@media screen and (max-width: 767px) {
+  .register__title {
+    margin-bottom: 80px;
+    align-self: center;
+  }
+}
+
+/* контейнер формы с 3мя импутами */
+.register__form {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px;
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+  .register__form {
+    padding: 0 30px;
+  }
+}
+
+/* контейнер для всех импут-контейнеров и подписи */
+.register__form_input-container {
+  list-style-type: none;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  margin-bottom: 69px;
+  padding: 0px;
+  gap: 20px;
+}
+@media screen and (max-width: 767px) {
+  .register__form_input-container {
+    margin-bottom: 157px;
+  }
+}
+
+/* контейнер для лейбла и импута */
+.register__form_input-container_element {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* лейбл */
+.register__form_label {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #a0a0a0;
+}
+
+/* сам инпут */
+.register__form_input {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 16px;
+  color: #000000;
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+/* подкласс для инпута */
+.register__form_input_red {
+  color: #ee3465;
+}
+
+/* всплывающая подпись с сообщением о ошибке */
+.register__form_error-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+}
+
+/* текстовая кнопка зарег */
+.register__form_btn {
+  width: 100%;
+  height: 45px;
+  background: #ff6838;
+  border-radius: 3px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ffffff;
+  border: none;
+  margin: 0;
+  margin-bottom: 16px;
+  padding: 0;
+}
+@media screen and (max-width: 767px) {
+  .register__form_btn {
+    width: 260px;
+    font-size: 12px;
+    line-height: 15px;
+    margin-bottom: 14px;
+  }
+}
+
+/* контейнер для текста и ссылки */
+.register__form_text-link-container {
+  gap: 6px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* текст */
+.register__form_question-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #a0a0a0;
+  margin: 0;
+  padding: 0;
+}
+@media screen and (max-width: 767px) {
+  .register__form_question-text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+/* текс ссылка */
+.register__form_link {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  color: #ff6838;
+  text-decoration: none;
+}
+@media screen and (max-width: 767px) {
+  .register__form_link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

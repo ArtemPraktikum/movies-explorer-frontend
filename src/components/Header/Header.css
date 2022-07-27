@@ -1,0 +1,264 @@
+/* весь хедер */
+.header {
+  max-width: 1280px;
+  height: 74px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+}
+@media screen and (max-width: 1279px) {
+  .header {
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 0 14px;
+  }
+}
+
+/* лого сайта */
+.header__logo {
+  width: 38px;
+  height: 38px;
+  margin-right: 40px;
+  background-image: url("../../images/logo.svg");
+}
+@media screen and (max-width: 1279px) {
+  .header__logo {
+    margin-right: 0px;
+  }
+}
+
+/* контейнер с ссылками фильмы сохр. фильмы */
+.header__nav-links {
+  gap: 16px;
+  display: flex;
+  margin-right: auto;
+}
+@media screen and (max-width: 1279px) {
+  .header__nav-links {
+    display: none;
+  }
+}
+
+/* текстовые ссылки */
+.header__link {
+  font-family: "Inter";
+  font-style: normal;
+  color: #000000;
+  text-decoration: none;
+}
+.header__link_movie {
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: right;
+}
+.header__link_movies {
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: right;
+}
+.header__link_account {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  align-items: center;
+}
+@media screen and (max-width: 1279px) {
+  .header__link_account {
+    display: none;
+  }
+}
+.header__link_auth {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+@media screen and (max-width: 767px) {
+  .header__link_auth {
+    font-size: 10px;
+    line-height: 16px;
+  }
+}
+.header__link_side-menu {
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-align: center;
+}
+
+/* контейнер с текстом и картинкой профиля */
+.header__nav-profile {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+}
+
+/* картинка ссылка на профиль */
+.header__profile-image {
+  background-image: url(../../images/profile_icon.svg);
+  width: 12px;
+  height: 12px;
+  background-color: #f9f9f9;
+  border-radius: 6px;
+  padding: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+@media screen and (max-width: 1279px) {
+  .header__profile-image {
+    display: none;
+  }
+}
+
+/* кнопка бургер меню */
+.header__burger-menu-button {
+  display: none;
+  background-image: url("../../images/Burger_menu.svg");
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 44px;
+  height: 44px;
+  border: none;
+}
+@media screen and (max-width: 1279px) {
+  .header__burger-menu-button {
+    display: block;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header__burger-menu-button {
+    width: 40px;
+    height: 43px;
+    background-image: url("../../images/Burger_menu_320.svg");
+  }
+}
+
+/* контейнер с кнопками авторизации при логин фолс */
+.header__auth-link-container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+@media screen and (max-width: 767px) {
+  .header__auth-link-container {
+    gap: 14px;
+  }
+}
+
+/* текст кнопка логин */
+.header__link_auth_singin {
+  width: 76px;
+  height: 32px;
+  background: #2be080;
+  border-radius: 3px;
+  border: none;
+  padding: 8px 20px;
+  box-sizing: border-box;
+}
+@media screen and (max-width: 767px) {
+  .header__link_auth_singin {
+    width: 54px;
+    height: 26px;
+    padding: 5px 12px;
+  }
+}
+
+/* боковое меню навигации для лоу разрешений */
+.header__side-menu {
+  display: none;
+}
+.header__side-menu_open {
+  display: flex;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+/* кнопка закрытия сайд меню */
+.header__side-menu_close-btn {
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: 23px;
+  right: 23px;
+  padding: 0px;
+  background-image: url("../../images/Close_btn.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: transparent;
+  border: none;
+  z-index: 2;
+}
+@media screen and (max-width: 767px) {
+  .header__side-menu_close-btn {
+    top: 14px;
+    right: 14px;
+  }
+}
+
+/* конейнер в сайд меню для двух контейнеров с ссылками */
+.header__side-menu_container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  list-style-type: none;
+  width: 66%;
+  height: 100%;
+  z-index: 1;
+}
+@media screen and (max-width: 767px) {
+  .header__side-menu_container {
+    width: 100%;
+  }
+}
+
+/* контейнер для ссылок в сайд меню */
+.header__side-menu_container_element {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.header__side-menu_container_element:first-child {
+  margin-top: 159px;
+  gap: 28px;
+}
+.header__side-menu_container_element:last-child {
+  margin-bottom: 91px;
+  flex-direction: row;
+  gap: 13px;
+}
+@media screen and (max-width: 767px) {
+  .header__side-menu_container_element:first-child {
+    margin-top: 144px;
+    gap: 24px;
+  }
+  .header__side-menu_container_element:last-child {
+    margin-bottom: 47px;
+  }
+}
+/* доп класс для ссылок на профиль для видимости */
+@media screen and (max-width: 1279px) {
+  .header__link_account_side-menu {
+    display: block;
+  }
+}
+@media screen and (max-width: 1279px) {
+  .header__profile-image_side-menu {
+    display: block;
+  }
+}

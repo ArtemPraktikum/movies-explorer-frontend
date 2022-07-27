@@ -1,0 +1,110 @@
+/* главный контейнер */
+.portfolio {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+/* маленький заголовок */
+.portfolio__title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #000000;
+  margin: 0px;
+  margin-bottom: 45px;
+}
+@media screen and (max-width: 1279px) {
+  .portfolio__title {
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .portfolio__title {
+    font-size: 14px;
+    line-height: 20px;
+    color: #a0a0a0;
+  }
+}
+
+/* список контейнер для ссылок */
+.portfolio__link-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+}
+
+/* элем списка в котором ссылка */
+.portfolio__link-list_item {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 9px;
+  border-bottom: 1px solid #e8e8e8;
+  margin: 0;
+}
+@media screen and (max-width: 767px) {
+  .portfolio__link-list_item {
+    padding-bottom: 19px;
+  }
+}
+.portfolio__link-list_item:last-child {
+  padding: 0px;
+  border: none;
+}
+
+/* ссылка контейнер */
+.portfolio__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-decoration: none;
+}
+
+/* текст ссылки */
+.portfolio__link_title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+  color: #000000;
+  margin: 0px;
+  padding: 0;
+}
+@media screen and (max-width: 1279px) {
+  .portfolio__link_title {
+    letter-spacing: -0.08em;
+  }
+}
+@media screen and (max-width: 767px) {
+  .portfolio__link_title {
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+  }
+}
+
+/* картинка стрелочки */
+.portfolio__link_picture {
+  width: 29px;
+  height: 60px;
+  object-fit: scale-down;
+}
+@media screen and (max-width: 767px) {
+  .portfolio__link_picture {
+    width: 18px;
+    height: 28px;
+  }
+}
