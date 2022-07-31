@@ -1,7 +1,25 @@
 import "./Register.css";
 import { NavLink } from "react-router-dom";
+import UseFormHook from "../../utils/UseFormHook";
 
-function Register() {
+function Register(props) {
+  // копипаст решение из тренажера
+  const { values, isValid, handleChange, errors } = UseFormHook({
+    email: "",
+    password: "",
+    name: "",
+  });
+
+  // при сабмите формы передать в функцию с запросом к апи данные из инпутов
+  const onRegisterSumbit = (evt) => {
+    evt.preventDefault();
+    props.handleRegister({
+      email: values.email,
+      name: values.name,
+      password: values.password,
+    });
+  };
+
   return (
     // контейнер стр. регистрации
     <section className="register">
@@ -10,7 +28,11 @@ function Register() {
       {/* заголовок */}
       <h1 className="register__title">Добро пожаловать!</h1>
       {/* контейнер формы с 3мя импутами */}
-      <form className="register__form" name="register">
+      <form
+        className="register__form"
+        name="register"
+        onSubmit={onRegisterSumbit}
+      >
         {/* контейнер для всех импут-контейнеров и подписи */}
         <ul className="register__form_input-container">
           {/* контейнер для лейбла и импута */}
@@ -21,43 +43,57 @@ function Register() {
             <input
               className="register__form_input"
               type="text"
-              placeholder="введите ваше имя"
+              placeholder="Введите ваше имя"
               required
-              value={"Виталий"}
+              onChange={handleChange}
+              values={values.name}
+              name="name"
+              minLength="3"
+              maxLength="20"
             />
+            {/* всплывающая подпись с сообщением о ошибке */}
+            <span className="register__form_error-text">{errors.name}</span>
           </li>
-
           <li className="register__form_input-container_element">
             <label className="register__form_label">E-mail</label>
             <input
               className="register__form_input"
               type="email"
-              placeholder="введите ваш E-mail"
+              placeholder="Введите ваш E-mail"
               required
-              value={"pochta@yandex.ru"}
+              onChange={handleChange}
+              values={values.email}
+              name="email"
             />
+            {/* всплывающая подпись с сообщением о ошибке */}
+            <span className="register__form_error-text">{errors.email}</span>
           </li>
-
           <li className="register__form_input-container_element">
             <label className="register__form_label">Пароль</label>
             <input
               className="register__form_input register__form_input_red"
               type="password"
-              placeholder="Ведите ваш пароль"
+              placeholder="Введите ваш пароль"
               required
-              value={12345678912345}
+              onChange={handleChange}
+              values={values.password}
+              name="password"
+              minLength="6"
+              maxLength="20"
             />
             {/* всплывающая подпись с сообщением о ошибке */}
-            <span className="register__form_error-text">
-              Что-то пошло не так...
-            </span>
+            <span className="register__form_error-text">{errors.password}</span>
           </li>
+          {/* доп сообщение об ошибке после отправки */}
+          <span className="register__form_error-text">{props.registrErr}</span>
         </ul>
         {/* текстовая кнопка зарег. */}
         <button
           className="register__form_btn"
           type="submit"
           aria-label="кнопка подтвердить регистрацию"
+          // если плохо то серая
+          disabled={!isValid}
         >
           Зарегистрироваться
         </button>
