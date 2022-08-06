@@ -1,6 +1,6 @@
 import "./Login.css";
 import { NavLink } from "react-router-dom";
-
+// хук для валидации форм из тренажёра
 import UseFormHook from "../../utils/UseFormHook";
 
 function Login(props) {
@@ -9,7 +9,6 @@ function Login(props) {
     email: "",
     password: "",
   });
-
   // при сабмите формы передать в функцию с запросом к апи данные из инпутов
   const onLoginSumbit = (evt) => {
     evt.preventDefault();

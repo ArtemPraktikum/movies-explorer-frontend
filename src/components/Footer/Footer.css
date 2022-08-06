@@ -13,7 +13,6 @@
     padding: 79px 10px 10px;
   }
 }
-
 /* глав заголовок футера */
 .footer__title {
   font-family: "Inter";
@@ -34,7 +33,6 @@
     padding-bottom: 21px;
   }
 }
-
 /* контейнер для даты и контейнера с ссылками */
 .footer__container {
   display: flex;
@@ -48,7 +46,6 @@
     padding-top: 24px;
   }
 }
-
 /* текст год */
 .footer__year {
   font-family: "Inter";
@@ -67,7 +64,6 @@
     margin-top: 28px;
   }
 }
-
 /* список контейнер для ссылок */
 .footer__links-container {
   display: flex;
@@ -83,7 +79,6 @@
     gap: 4px;
   }
 }
-
 /* ссылка текст */
 .footer__link {
   font-family: "Inter";

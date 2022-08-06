@@ -1,23 +1,18 @@
+import "./App.css";
 import { useState, useEffect } from "react";
 import { Route, Switch, useHistory } from "react-router-dom";
-import "./App.css";
 
-// импорт компонентов
 import Main from "../Main/Main";
-import Movies from "../Movies/Movies";
-import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import Register from "../Register/Register";
 import Login from "../Login/Login";
+import Movies from "../Movies/Movies";
+import SavedMovies from "../SavedMovies/SavedMovies";
 import NotFoundPage from "../NotFoundPage/NotFoundPage";
-
-// импорт функции для входа на защищенные роуты
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-// импорт созданного контекста
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
-// импорт апи
 import {
   // запрос к апи на регистрацию юзера
   register,
@@ -27,11 +22,6 @@ import {
   getUserInfo,
   // запрос к апи на изменнение данных юзера
   editProfile,
-  // запрос к апи на получение всех сохранённых пользователем фильмов. пригодится позже
-  getMovies, 
-
-  // будет запрос на сохр фильмов
-  // будет запрос на удаление фильмов
 } from "../../utils/MainApi";
 
 function App() {
@@ -39,7 +29,6 @@ function App() {
   const history = useHistory();
 
   // стейты :
-
   // успешный логин нет \ да
   const [loggedIn, setloggedIn] = useState(false);
   // успешное изменение профиля нет \ да
@@ -52,12 +41,10 @@ function App() {
   const [profileErr, setprofileErr] = useState("");
   // объект с данными о юзере пусто \ { _id email name __v}
   const [user, setuser] = useState({});
-  //  массив с сохр юзером фильмами пусто \ [{фильм} {фильм} {фильм}]
-  const [savedMovies, setsavedMovies] = useState([]);
-  // будет стейт с шириной окна для отображения разного колл карточек фильмов
+  // валиден ли запрос юзера нет/да
+  const [isSearchRequestValid, setIsSearchRequestValid] = useState(false);
 
   // функция при сабмите формы логина:
-
   // принимать мейл и пароль из инпутов
   const handleLogin = ({ email, password }) => {
     // обнулять и прятать текст ошибки если была
@@ -76,17 +63,6 @@ function App() {
             setuser(userObj);
             // изменить логин стейт на тру
             setloggedIn(true);
-            // сделать запрос на апи что бы получить все сохран. фильмы юзера в массиве
-            getMovies()
-              // потом если всё ок в then если нет в catch
-              .then((res) => {
-                //  записать полученный массив фильмов в стэйт
-                setsavedMovies(res);
-                // записать полученный массив фильмов в локал сторе
-                localStorage.setItem("films", JSON.stringify(res));
-              })
-              // потом обработать ошибки если не прошёл getMovies()
-              .catch((err) => console.log(err));
             // так или иначе потом перекинуть юзера на стр фильмов
             history.push("/movies");
           })
@@ -112,9 +88,7 @@ function App() {
         }
       });
   };
-
   // функция при сабмите формы регистрации:
-
   // принимать имя, мейл и пароль из инпутов
   const handleRegister = ({ name, email, password }) => {
     // обнулять и прятать текст ошибки если была
@@ -139,9 +113,7 @@ function App() {
         }
       });
   };
-
   // функция  при сабмите формы изменения профиля:
-
   // принимать мейл и пароль из инпутов
   const handleUpdateUser = ({ name, email }) => {
     // обнулять и прятать текст ошибки если была
@@ -168,7 +140,6 @@ function App() {
         }
       });
   };
-
   // функция при разлогирование юзером на странице профиля созданная для импорта в profile.js
   const handleLogOut = () => {
     // очистить стейт с данными о юзере
@@ -180,7 +151,6 @@ function App() {
     // перекинуть юзера на главную страницу
     history.push("/");
   };
-
   // функция для логина юзера при его заходе на сайт если в локал сторе уже есть его токен
   const handleTokenCheck = () => {
     // если в локал сторе есть токен юзера то:
@@ -193,10 +163,6 @@ function App() {
           setloggedIn(true);
           // записать в обьект с юзер данными в стейт
           setuser(userObj);
-          // создать переменную и записать в неё сохр фильмы юзера
-          let userFilms = JSON.parse(localStorage.getItem("films"));
-          // записать в массив с сохр юзером фильмами в стейт с фильмами
-          setsavedMovies(userFilms);
         })
         // потом обработать ошибки если не прошёл getUserInfo()
         .catch((err) => {
@@ -206,12 +172,10 @@ function App() {
         });
     }
   };
-
   // Хук для логина юзера при его заходе на сайт если в локал сторе уже есть его токен, сработает единожды
   useEffect(() => {
     handleTokenCheck();
   }, []);
-
   return (
     // позволяем дочерним компонентам, использующим этот контекст, подписаться на его изменения
     <CurrentUserContext.Provider value={user}>
@@ -223,23 +187,22 @@ function App() {
           <Route exact path="/">
             <Main loggedIn={loggedIn} />
           </Route>
-
-          {/* компонент страницы с поиском по фильмам */}
+          {/* компонент страницы с поиском по фильмам и фильмами */}
           <ProtectedRoute
-            exact
             path="/movies"
-            component={Movies}
             loggedIn={loggedIn}
+            isSearchRequestValid={isSearchRequestValid}
+            setIsSearchRequestValid={setIsSearchRequestValid}
+            component={Movies}
           />
-
           {/* компонент страницы с сохранёнными карточками фильмов */}
           <ProtectedRoute
-            exact
             path="/saved-movies"
-            component={SavedMovies}
             loggedIn={loggedIn}
+            isSearchRequestValid={isSearchRequestValid}
+            setIsSearchRequestValid={setIsSearchRequestValid}
+            component={SavedMovies}
           />
-
           {/* компонент страницы изменения профиля */}
           <ProtectedRoute
             exact
@@ -251,17 +214,14 @@ function App() {
             isProfileChange={isProfileChange}
             profileErr={profileErr}
           />
-
           {/* компонент страницы регистрации */}
           <Route exact path="/signup">
             <Register handleRegister={handleRegister} registrErr={registrErr} />
           </Route>
-
           {/* компонент страницы авторизации */}
           <Route exact path="/signin">
             <Login handleLogin={handleLogin} loginErr={loginErr} />
           </Route>
-
           {/* компонент для любого несуществуюшего роута */}
           <Route path="/*">
             <NotFoundPage />

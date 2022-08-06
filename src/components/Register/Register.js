@@ -1,5 +1,7 @@
 import "./Register.css";
+
 import { NavLink } from "react-router-dom";
+
 import UseFormHook from "../../utils/UseFormHook";
 
 function Register(props) {
@@ -9,7 +11,6 @@ function Register(props) {
     password: "",
     name: "",
   });
-
   // при сабмите формы передать в функцию с запросом к апи данные из инпутов
   const onRegisterSumbit = (evt) => {
     evt.preventDefault();

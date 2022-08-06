@@ -17,7 +17,6 @@
     padding: 0 14px;
   }
 }
-
 /* лого сайта */
 .header__logo {
   width: 38px;
@@ -30,7 +29,6 @@
     margin-right: 0px;
   }
 }
-
 /* контейнер с ссылками фильмы сохр. фильмы */
 .header__nav-links {
   gap: 16px;
@@ -42,7 +40,6 @@
     display: none;
   }
 }
-
 /* текстовые ссылки */
 .header__link {
   font-family: "Inter";

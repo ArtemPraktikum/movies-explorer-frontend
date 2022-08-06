@@ -1,7 +1,7 @@
 // файл для работы с апи пользователя
 
 // ссылка на фронт
-import { baseUrl } from "./constants";
+import { baseUrl, imgMoviesUrl } from "./constants";
 
 // стандарт проверка на ок не ок
 const checkResponse = (res) => {
@@ -31,13 +31,13 @@ export const login = (email, password) =>
     body: JSON.stringify({ password, email }),
   }).then(checkResponse);
 
-// полкучить данные юзера
+// получить данные юзера
 export const getUserInfo = () =>
   fetch(`${baseUrl}/users/me`, {
     method: "GET",
     headers: {
-      authorization: `Bearer ${localStorage.getItem("token")}`,
       "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   }).then(checkResponse);
 
@@ -55,8 +55,47 @@ export const editProfile = (name, email) =>
   fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
-      authorization: `Bearer ${localStorage.getItem("token")}`,
       "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("token")}`,
     },
     body: JSON.stringify({ name, email }),
+  }).then(checkResponse);
+
+// сохранить фильм в избранное
+export const saveMovie = (movie) =>
+  fetch(`${baseUrl}/movies`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+    body: JSON.stringify({
+      country: movie.country || "not Empty",
+      director: movie.director || "not Empty",
+      duration: movie.duration || "not Empty",
+      year: movie.year || "not Empty",
+      description: movie.description || "not Empty",
+      image: `${imgMoviesUrl}${
+        movie.image.url ||
+        "https://api.nomoreparties.co/uploads/images_244e1fd56f.jpeg"
+      }`,
+      trailerLink:
+        movie.trailerLink || "https://www.youtube.com/watch?v=YOEKYwBm6sI",
+      thumbnail: `${imgMoviesUrl}${
+        movie.image.url ||
+        "https://api.nomoreparties.co/uploads/images_244e1fd56f.jpeg"
+      }`,
+      movieId: movie.id || "99",
+      nameRU: movie.nameRU || "not Empty",
+      nameEN: movie.nameEN || "not Empty",
+    }),
+  }).then(checkResponse);
+// удалить фильм из избранного
+export const deleteMovie = (_id) =>
+  fetch(`${baseUrl}/movies/${_id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
   }).then(checkResponse);

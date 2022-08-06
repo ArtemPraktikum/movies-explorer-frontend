@@ -1,28 +1,25 @@
-import "./Profile.css";
-import Header from "../Header/Header";
-import UseFormHook from "../../utils/UseFormHook";
 import { useRef, useContext, useState, useEffect } from "react";
 
-// импорт созданного контекста
+import "./Profile.css";
+
+import Header from "../Header/Header";
+import UseFormHook from "../../utils/UseFormHook";
+
 import { CurrentUserContext } from "../../context/CurrentUserContext";
 
 function Profile(props) {
   // взять данные о юзере из контекста что бы положить их в изначальные инпуты
   const currentUser = useContext(CurrentUserContext);
-
   // юз реф хуком будем после каждой перемены инпута менять значение рефа(ппц новые технологии, находил это решение 2 дня..)
   const refName = useRef("");
   const refEmail = useRef("");
-
   // копипаст решение из тренажера
   const { errors, handleChange, isValid } = UseFormHook({
     name: refName.current.value,
     email: refEmail.current.value,
   });
-
   // стейт для двух инпутов нужный для того что бы если стейт менялся кнопка сабмита стала рабочей
   const [isChange, setisChange] = useState(false);
-
   // хук для понимания что валью инпутов поменялось и если оно поменялось то изменить стейт изменения данных на тру. юудет срабатывать при каждом наболре символа в инпуте
   useEffect(() => {
     if (
@@ -39,16 +36,13 @@ function Profile(props) {
     currentUser.name,
     currentUser.email,
   ]);
-
   // при сабмите формы передать в функцию с запросом к апи данные из рефа
   const handleSubmit = (evt) => {
     evt.preventDefault();
     // записать в переменные данные из рефа
     let name = refName.current.value;
     let email = refEmail.current.value;
-
     props.handleUpdateUser({ name, email });
-
     // сбросить формы что бы избежать конфликтов
     evt.target.reset();
   };
@@ -78,13 +72,14 @@ function Profile(props) {
                 required
                 ref={refName}
                 onChange={handleChange}
-                values={refName.current.value}
+                values={refName.current.value || ""}
                 defaultValue={currentUser.name}
                 name="name"
                 minLength="3"
                 maxLength="20"
               />
             </li>
+            {/* текст ошибки */}
             {errors.profileName && (
               <span className="profile__form_error-text">
                 {errors.profileName}

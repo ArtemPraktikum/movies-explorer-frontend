@@ -74,17 +74,15 @@
   background-color: transparent;
   background-size: cover;
   border: none;
+  background-image: url("../../images/dislike.svg");
 }
 /* актив лайк */
 .movies-card__btn_liked {
   background-image: url("../../images/like.svg");
 }
-/* неактив лайк */
-.movies-card__btn_disliked {
-  background-image: url("../../images/dislike.svg");
-}
+
 /* вместо лайка кнопка удаления */
-.movies-card__btn_delete {
+.movies-card__btn_liked:hover {
   background-image: url("../../images/delete.svg");
 }
 

@@ -9,7 +9,7 @@ export default function UseFormHook() {
   // валью инпута
   const [values, setValues] = useState({});
 
-  // текст ошибки 
+  // текст ошибки
   const [errors, setErrors] = useState({});
   // валидна ли форма? да нет
   const [isValid, setIsValid] = useState(false);

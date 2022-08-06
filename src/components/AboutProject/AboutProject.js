@@ -20,7 +20,6 @@ function AboutProject() {
             функциональности и финальные доработки.
           </p>
         </div>
-
         {/* конейнер для заголовка и текста */}
         <div className="about-project__block_text">
           {/* текст заголовок */}
@@ -34,7 +33,6 @@ function AboutProject() {
           </p>
         </div>
       </div>
-
       {/* контейнер для двух блоков/илюстраций с текстом */}
       <div className="about-project__block-colortext-container">
         {/* контейнер для бэк энд блока */}
@@ -44,9 +42,10 @@ function AboutProject() {
             1 неделя
           </p>
           {/* подпись снизу */}
-          <p className="about-project__front-back-block_description">Back-end</p>
+          <p className="about-project__front-back-block_description">
+            Back-end
+          </p>
         </div>
-
         {/* контейнер для фронт энд блока */}
         <div className="about-project__front-back-block_front">
           {/* текст с бэкграундом фронтенд */}
@@ -54,7 +53,9 @@ function AboutProject() {
             4 недели
           </p>
           {/* подпись снизу */}
-          <p className="about-project__front-back-block_description">Front-end</p>
+          <p className="about-project__front-back-block_description">
+            Front-end
+          </p>
         </div>
       </div>
     </section>
