@@ -1,15 +1,25 @@
 import "./SearchForm.css";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function SearchForm(props) {
-  
+  const [initialChecked, setinitialChecked] = useState('');
+
   // фунц. обработки сабмита
   const handleSubmit = (evt) => {
     evt.preventDefault();
     props.onSearchRequest();
   };
 
-
+  const getInitialChekbox = () => {
+    if (JSON.parse(localStorage.getItem("checkbox"))) {
+      setinitialChecked(true);
+    } else {
+      setinitialChecked(false);
+    }
+  };
+  useEffect(() => {
+    getInitialChekbox();
+  }, [props.handleCheckBox]);
   // фунц. обработки текста инпута
   const handleSearchInput = (e) => {
     props.setInputValue(e.target.value);
@@ -52,7 +62,7 @@ function SearchForm(props) {
               type="checkbox"
               // если чекбокс нажали то стейт чекбокса меняется
               onChange={props.handleCheckBox}
-              checked={props.isChecked ? true : false}
+              checked={initialChecked}
             />
             <span className="slider round"></span>
           </label>

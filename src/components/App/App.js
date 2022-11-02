@@ -47,13 +47,8 @@ function App() {
   const [isSearchRequestValid, setIsSearchRequestValid] = useState(false);
 
   function handleCheckBox() {
-    setIsChecked((prev) => !prev);
-    localStorage.setItem(
-      "checkbox",
-      JSON.stringify({
-        checked: !isChecked,
-      })
-    );
+    setIsChecked(!isChecked);
+    localStorage.setItem("checkbox", !isChecked);
   }
 
   // функция при сабмите формы логина:
