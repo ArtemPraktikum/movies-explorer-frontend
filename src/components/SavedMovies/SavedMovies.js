@@ -83,10 +83,7 @@ function SavedMovies(props) {
         setIsLoading(false);
       });
   };
-  // переключить чекбокс при клике
-  const handleCheckBox = () => {
-    setIsChecked(!props.isChecked);
-  };
+
   // удалить карточку при клике
   const handleLikeClick = (movie) => {
     deleteMovie(movie._id)
@@ -149,7 +146,7 @@ function SavedMovies(props) {
         inputValue={inputValue}
         setInputValue={setInputValue}
         isValid={props.isSearchRequestValid}
-        onCheckBoxClick={handleCheckBox}
+        handleCheckBox={props.handleCheckBox}
       />
       {/* компонент прелоудера */}
       {isLoading && <Preloader isLoading={isLoading} />}

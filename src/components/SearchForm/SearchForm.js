@@ -1,15 +1,15 @@
 import "./SearchForm.css";
+import { useEffect } from "react";
 
 function SearchForm(props) {
+  
   // фунц. обработки сабмита
   const handleSubmit = (evt) => {
     evt.preventDefault();
     props.onSearchRequest();
   };
-  // фунц. обработки чекбокса
-  const handleCheckBox = () => {
-    props.onCheckBoxClick();
-  };
+
+
   // фунц. обработки текста инпута
   const handleSearchInput = (e) => {
     props.setInputValue(e.target.value);
@@ -51,7 +51,8 @@ function SearchForm(props) {
             <input
               type="checkbox"
               // если чекбокс нажали то стейт чекбокса меняется
-              onChange={handleCheckBox}
+              onChange={props.handleCheckBox}
+              checked={props.isChecked ? true : false}
             />
             <span className="slider round"></span>
           </label>

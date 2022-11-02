@@ -50,11 +50,6 @@ function Movies(props) {
     }
   });
 
-  // функ. при измен. чекбокса менять его сост. и обнулять фильмы для показа
-  const handleCheckBox = () => {
-    setIsChecked(!isChecked);
-    setRenderedMovies([]);
-  };
   // функ если есть залог. юзер получить и локала его инфо и записать все фильмы в локал под его id
   const getLocalUserInfo = () => {
     if (localStorage.getItem(currentUser._id) !== null) {
@@ -231,6 +226,11 @@ function Movies(props) {
     getSavedMovies();
   }, [currentUser]);
 
+  function onCheckboxClick() {
+    props.handleCheckBox();
+    setRenderedMovies([]);
+  }
+
   return (
     // контейнер всей страницы
     <>
@@ -243,7 +243,7 @@ function Movies(props) {
         inputValue={inputValue}
         setInputValue={setInputValue}
         isValid={props.isSearchRequestValid}
-        onCheckBoxClick={handleCheckBox}
+        handleCheckBox={onCheckboxClick}
       />
       {/* текст ошибки */}
       <p>{error}</p>

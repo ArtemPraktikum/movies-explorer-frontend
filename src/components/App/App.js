@@ -29,8 +29,8 @@ function App() {
   const history = useHistory();
 
   // стейты :
-    // состояние чекбокса
-    const [isChecked, setIsChecked] = useState(false);
+  // состояние чекбокса
+  const [isChecked, setIsChecked] = useState(false);
   // успешный логин нет \ да
   const [loggedIn, setloggedIn] = useState(false);
   // успешное изменение профиля нет \ да
@@ -45,6 +45,16 @@ function App() {
   const [user, setuser] = useState({});
   // валиден ли запрос юзера нет/да
   const [isSearchRequestValid, setIsSearchRequestValid] = useState(false);
+
+  function handleCheckBox() {
+    setIsChecked((prev) => !prev);
+    localStorage.setItem(
+      "checkbox",
+      JSON.stringify({
+        checked: !isChecked,
+      })
+    );
+  }
 
   // функция при сабмите формы логина:
   // принимать мейл и пароль из инпутов
@@ -197,6 +207,7 @@ function App() {
             setIsSearchRequestValid={setIsSearchRequestValid}
             component={Movies}
             isChecked={isChecked}
+            handleCheckBox={handleCheckBox}
           />
           {/* компонент страницы с сохранёнными карточками фильмов */}
           <ProtectedRoute
@@ -206,6 +217,7 @@ function App() {
             setIsSearchRequestValid={setIsSearchRequestValid}
             component={SavedMovies}
             isChecked={isChecked}
+            handleCheckBox={handleCheckBox}
           />
           {/* компонент страницы изменения профиля */}
           <ProtectedRoute
