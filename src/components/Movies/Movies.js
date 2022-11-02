@@ -18,8 +18,6 @@ function Movies(props) {
   const currentUser = useContext(CurrentUserContext);
   // сохранённые фильмы
   const [savedMovies, setSavedMovies] = useState([]);
-  // состояние чекбокса
-  const [isChecked, setIsChecked] = useState(false);
   // состояние загрузки
   const [isLoading, setIsLoading] = useState(false);
   // текст строки поиска
@@ -69,7 +67,7 @@ function Movies(props) {
   // функ. отфильтровать фильмы по коротким и нет
   const filterMovies = (allMovies) => {
     return allMovies.filter((movie) => {
-      if (isChecked) {
+      if (props.isChecked) {
         return (
           movie.duration <= 40 &&
           movie.nameRU.toLowerCase().includes(searchRequest.toLowerCase())
@@ -222,7 +220,7 @@ function Movies(props) {
   // хук записывающий отобранные фильмы в стейт когда был актив. чекбокс, был поиск или поменялись все фильмы
   useEffect(() => {
     getFilterMovies();
-  }, [isChecked, searchRequest, allMovies]);
+  }, [props.isChecked, searchRequest, allMovies]);
   // хук проверяющий запрос юзера на валидность при посике юзера и измен. инпута
   useEffect(() => {
     checkFormValidity();
@@ -241,8 +239,7 @@ function Movies(props) {
       {/* компонент  с строкой поиска и чекбосом */}
       <SearchForm
         onSearchRequest={handleSearchSubmit}
-        isChecked={isChecked}
-        setIsChecked={setIsChecked}
+        isChecked={props.isChecked}
         inputValue={inputValue}
         setInputValue={setInputValue}
         isValid={props.isSearchRequestValid}

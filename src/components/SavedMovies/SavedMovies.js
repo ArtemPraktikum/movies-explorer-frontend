@@ -15,8 +15,7 @@ function SavedMovies(props) {
   const currentUser = useContext(CurrentUserContext);
   // сохранённые фильмы
   const [savedMovies, setSavedMovies] = useState([]);
-  // состояние чекбокса
-  const [isChecked, setIsChecked] = useState(false);
+
   // текст строки поиска
   const [searchRequest, setSearchRequest] = useState("");
   // состояние загрузки
@@ -39,7 +38,7 @@ function SavedMovies(props) {
   // отобрать фильмы на короткие и длинные и вернуть массивом
   const filterMovies = (allMovies) => {
     return allMovies.filter((movie) => {
-      if (isChecked) {
+      if (props.isChecked) {
         return (
           movie.duration <= 40 &&
           movie.nameRU.toLowerCase().includes(searchRequest.toLowerCase())
@@ -86,7 +85,7 @@ function SavedMovies(props) {
   };
   // переключить чекбокс при клике
   const handleCheckBox = () => {
-    setIsChecked(!isChecked);
+    setIsChecked(!props.isChecked);
   };
   // удалить карточку при клике
   const handleLikeClick = (movie) => {
@@ -136,7 +135,7 @@ function SavedMovies(props) {
   }, [filteredMovies]);
   useEffect(() => {
     getFilterMovies();
-  }, [savedMovies, isChecked, searchRequest]);
+  }, [savedMovies, props.isChecked, searchRequest]);
 
   return (
     // контейнер всей страницы
@@ -146,10 +145,9 @@ function SavedMovies(props) {
       {/* компонент  с строкой поиска и чекбосом */}
       <SearchForm
         onSearchRequest={handleSearchSubmit}
-        isChecked={isChecked}
+        isChecked={props.isChecked}
         inputValue={inputValue}
         setInputValue={setInputValue}
-        setIsChecked={setIsChecked}
         isValid={props.isSearchRequestValid}
         onCheckBoxClick={handleCheckBox}
       />
