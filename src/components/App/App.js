@@ -46,6 +46,14 @@ function App() {
   // валиден ли запрос юзера нет/да
   const [isSearchRequestValid, setIsSearchRequestValid] = useState(false);
 
+  const getInitialChekbox = () => {
+    if (JSON.parse(localStorage.getItem("checkbox"))) {
+      setIsChecked(true);
+    } else {
+      setIsChecked(false);
+    }
+  };
+
   function handleCheckBox() {
     setIsChecked(!isChecked);
     localStorage.setItem("checkbox", !isChecked);
@@ -183,6 +191,12 @@ function App() {
   useEffect(() => {
     handleTokenCheck();
   }, []);
+
+  // хук для изначального состояния чекбокса
+  useEffect(() => {
+    getInitialChekbox();
+  }, []);
+
   return (
     // позволяем дочерним компонентам, использующим этот контекст, подписаться на его изменения
     <CurrentUserContext.Provider value={user}>
