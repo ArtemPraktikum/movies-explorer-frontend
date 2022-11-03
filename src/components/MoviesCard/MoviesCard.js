@@ -1,16 +1,41 @@
+import { useState, useEffect } from "react";
 import "./MoviesCard.css";
-import card_img from "../../images/card_img.png";
-import { useState } from "react";
 
-function MoviesCard() {
-  const [CardImgLiked, setCardImgLiked] = useState(false);
+function MoviesCard(props) {
+  // состояние кнопки лайка
+  const [isLiked, setIsLiked] = useState(() =>
+    props.savedMovies.some((item) =>
+      props.movie.id === undefined
+        ? item.movieId === props.movie.movieId
+        : item.movieId === props.movie.id
+    )
+  );
 
-  function handleLikeCard() {
-    setCardImgLiked(true);
-  }
-  // function handleDislikeCard() {
-  //   setCardImgLiked(false);
-  // }
+  // динамический класс кнопки лайка
+  const likeBtnClass = `movies-card__btn ${
+    isLiked && `movies-card__btn_liked`
+  }`;
+  // функ. при клике на лайк
+  const handleLike = () => {
+    props.onLikeClick(props.movie);
+  };
+  // функ сделать отображение длины фильма как в макете
+  const countMovieDuration = (mins) => {
+    let hours = Math.trunc(mins / 60);
+    let minutes = mins % 60;
+    return `${hours}ч ${minutes}м`;
+  };
+
+  // хук если меняются избран. фильмы выставить правильный класс лайка
+  useEffect(() => {
+    setIsLiked(() =>
+      props.savedMovies.some((item) =>
+        props.movie.id === undefined
+          ? item.movieId === props.movie.movieId
+          : item.movieId === props.movie.id
+      )
+    );
+  }, [props.savedMovies]);
 
   return (
     // контейнер всей карточки
@@ -20,24 +45,32 @@ function MoviesCard() {
         {/* контейнер для текста */}
         <div className="movies-card__text-container">
           {/* название фильма */}
-          <h3 className="movies-card__name">33 слова о дизайне</h3>
+          <h3 className="movies-card__name">{props.movie.nameRU}</h3>
           {/* продолжительность фильма текст */}
-          <p className="movies-card__film-lenght">1ч 42м</p>
+          <p className="movies-card__film-lenght">
+            {countMovieDuration(props.movie.duration)}
+          </p>
         </div>
-        {/* кнопка добавить в избр. или удал. из него (класс и вид карточки будет меняться динамически  в зависимости от роута с помощью логики на след этапе jsx логики будет что то вроде "путь  = "/saved-movies" ? нарисовать кнопку удаления : нарисовать кнопку доб. в избр.") */}
+        {/* кнопка лайка удаления дислайка */}
         <button
           type="button"
-          aria-label="Кнопка: добавить в избранное или удалить из него"
-          className={
-            CardImgLiked
-              ? "movies-card__btn movies-card__btn_liked"
-              : "movies-card__btn movies-card__btn_disliked"
-          }
-          onClick={handleLikeCard}
+          aria-label="Кнопка"
+          className={likeBtnClass}
+          onClick={handleLike}
         ></button>
       </div>
-      {/* картинка в карточке */}
-      <img className="movies-card__img" alt="Картинка фильма" src={card_img} />
+      {/* картинка в карточке (потом обернуть в ссылку для кликов на трейлеры)*/}
+      <a href={props.movie.trailerLink} target="_blank" rel="noreferrer">
+        <img
+          className="movies-card__img"
+          alt="Картинка фильма"
+          src={`${props.urlAddOn}${
+            props.movie.image.url === undefined
+              ? props.movie.image
+              : props.movie.image.url
+          }`}
+        />
+      </a>
     </article>
   );
 }

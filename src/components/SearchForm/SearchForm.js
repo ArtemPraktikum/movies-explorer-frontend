@@ -1,11 +1,26 @@
 import "./SearchForm.css";
 
-function SearchForm() {
+function SearchForm(props) {
+
+  // фунц. обработки сабмита
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    props.onSearchRequest();
+  };
+
+  // фунц. обработки текста инпута
+  const handleSearchInput = (e) => {
+    props.setInputValue(e.target.value);
+  };
   return (
     // весь компонент
     <section className="search-form">
       {/* контейнер формы */}
-      <form className="search-form__container" name="search">
+      <form
+        className="search-form__container"
+        name="search"
+        onSubmit={handleSubmit}
+      >
         {/* контейнер инпута */}
         <div className="search-form__input-container">
           {/* импут в форме */}
@@ -14,6 +29,11 @@ function SearchForm() {
             required
             type="text"
             placeholder="Фильм"
+            name="movie"
+            minLength="1"
+            maxLength="100"
+            value={props.inputValue}
+            onChange={handleSearchInput}
           />
           {/* кнопка поиска */}
           <button
@@ -26,7 +46,12 @@ function SearchForm() {
         <div className="seach-form__checkbox-container">
           {/* чекбокс (был взят в интернете) */}
           <label className="switch">
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              // если чекбокс нажали то стейт чекбокса меняется
+              onChange={props.handleCheckBox}
+              checked={props.isChecked}
+            />
             <span className="slider round"></span>
           </label>
           {/* подпись чекбокса */}

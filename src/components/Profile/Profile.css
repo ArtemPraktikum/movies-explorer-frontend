@@ -129,6 +129,29 @@
   }
 }
 
+/* всплывающая подпись с сообщением о ошибке */
+.profile__form_error-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #ee3465;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* всплывающая подпись с сообщением о успехе */
+.profile__form_success-text {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: #2be080;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* общий класс  текстовая кнопка отправить на сервер изменённые данные */
 .profile__btn {
   font-family: "Inter";
@@ -141,6 +164,9 @@
   border: none;
   margin: 0;
   padding: 0px;
+}
+.profile__btn:disabled {
+  opacity: 0.5;
 }
 @media screen and (max-width: 767px) {
   .profile__btn {

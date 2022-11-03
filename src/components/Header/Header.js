@@ -3,10 +3,9 @@ import { NavLink } from "react-router-dom";
 import "./Header.css";
 
 function Header(props) {
-  // Состояние BurgerMenu
+  // стейт BurgerMenu
   const [isBurgerMenuOpen, setisBurgerMenuOpen] = useState(false);
-
-  // Открыть/закрыть BurgerMenu
+  // функции Открыть/закрыть BurgerMenu
   function handleOpenBurgerMenu() {
     setisBurgerMenuOpen(true);
   }
